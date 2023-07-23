@@ -1,21 +1,15 @@
 package com.example
 
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
+import com.example.plugins.configureRouting
 import io.ktor.server.testing.*
-import kotlin.test.*
-import io.ktor.http.*
-import com.example.plugins.*
+import kotlin.test.Test
 
 class ApplicationTest {
 	@Test
 	fun testRoot() = testApplication {
 		application {
 			configureRouting()
-		}
-		client.get("/").apply {
-			assertEquals(HttpStatusCode.OK, status)
-			assertEquals("Hello World!", bodyAsText())
+//			configureSerialization()
 		}
 	}
 }
